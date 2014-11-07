@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Mirror" size="10.000000 14.942529" />
+    <ImageTarget name="Divider" size="10.000000 15.202312" />
+    <ImageTarget name="DividerNew" size="10.000000 14.257425" />
+    <ImageTarget name="MirrorNew" size="10.000000 13.921569" />
+    <ImageTarget name="Environment" size="10.000000 15.000000" />
+  </Tracking>
+</QCARConfig>
