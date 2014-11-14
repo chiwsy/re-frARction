@@ -30,10 +30,10 @@ public class RayDraw : MonoBehaviour
         _renderer.SetPosition(1, info.to + info.direction * Offset);
         
         Color colorFrom = Color.white;
-        colorFrom.a = (info.initialRange / info.maxRange) * info.intensity;
+        //colorFrom.a = (info.initialRange / info.maxRange) * info.intensity;
         
         Color colorTo = Color.white;
-        colorTo.a = (info.finalRange / info.maxRange) * info.intensity;
+        //colorTo.a = (info.finalRange / info.maxRange) * info.intensity;
         
         _renderer.SetColors(colorFrom, colorTo);
     }
