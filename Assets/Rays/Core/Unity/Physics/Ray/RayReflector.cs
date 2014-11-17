@@ -20,7 +20,7 @@ public class RayReflector : MonoBehaviour
     void OnRay (RayInfo rayInfo)
     {
     	//Reflects the incoming ray and advices the gameObject that he emit a ray.
-    	RayInfo.Emit(rayInfo.to, rayInfo.normalReflectDirection, rayInfo.finalRange * rangeFactor,rayInfo.maxRange, rayInfo.intensity* intensityFactor, transform);
+		RayInfo.Emit(rayInfo.rayIndex, rayInfo.to, rayInfo.normalReflectDirection, rayInfo.finalRange * rangeFactor,rayInfo.maxRange, rayInfo.intensity* intensityFactor, transform);
     }
     
 	void OnRayExit (RayInfo rayInfo)

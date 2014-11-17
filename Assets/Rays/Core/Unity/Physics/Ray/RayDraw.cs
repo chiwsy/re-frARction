@@ -28,6 +28,7 @@ public class RayDraw : MonoBehaviour
         _renderer.useWorldSpace = true;
         _renderer.SetPosition(0, info.from - info.direction * Offset);
         _renderer.SetPosition(1, info.to + info.direction * Offset);
+		_renderer.SetWidth (info.intensity, info.intensity);
         
         Color colorFrom = Color.white;
         //colorFrom.a = (info.initialRange / info.maxRange) * info.intensity;

@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="Mirror2" size="100.000000 65.066666" />
+    <ImageTarget name="Boat1" size="100.000000 64.533333" />
+    <ImageTarget name="Boat2" size="100.000000 64.800003" />
     <ImageTarget name="Mirror" size="10.000000 14.942529" />
+    <ImageTarget name="Convex" size="100.000000 64.800003" />
+    <ImageTarget name="Spaceship2" size="100.000000 64.800003" />
+    <ImageTarget name="Concave" size="100.000000 64.800003" />
+    <ImageTarget name="Police_car" size="100.000000 64.800003" />
+    <ImageTarget name="Fire_fighting_car" size="100.000000 64.800003" />
+    <ImageTarget name="Spcaeship1" size="100.000000 64.533333" />
+    <ImageTarget name="Mirror3" size="100.000000 64.800003" />
+    <ImageTarget name="Car1" size="100.000000 64.800003" />
     <ImageTarget name="Divider" size="10.000000 15.202312" />
-    <ImageTarget name="DividerNew" size="10.000000 14.257425" />
-    <ImageTarget name="MirrorNew" size="10.000000 13.921569" />
-    <ImageTarget name="Environment" size="10.000000 15.000000" />
+    <ImageTarget name="Airplane2" size="100.000000 64.800003" />
+    <ImageTarget name="Mirror1" size="100.000000 64.800003" />
+    <ImageTarget name="Airplane1" size="100.000000 64.627663" />
+    <ImageTarget name="Concave2" size="100.000000 64.800003" />
+    <ImageTarget name="Divider1" size="100.000000 64.800003" />
+    <ImageTarget name="Convex2" size="100.000000 64.800003" />
   </Tracking>
 </QCARConfig>

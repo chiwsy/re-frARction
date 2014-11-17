@@ -17,9 +17,11 @@ public class RayEmitter : MonoBehaviour
 	/// </summary>
     public float intensity = 1;
 
+	public int rayIndex = 1;
+
     void Update()
     {
-    	RayInfo.Emit(transform.position, transform.forward, range, range, intensity, transform);
+		RayInfo.Emit(rayIndex, transform.position, transform.forward, range, range, intensity, transform);
     }
             
     void OnDisable()

@@ -5,6 +5,8 @@ using UnityEngine;
 /// </summary>
 public struct RayInfo
 {
+
+	public int rayIndex;
 	/// <summary>
 	/// Which component emitted the ray.
 	/// </summary>
@@ -103,7 +105,7 @@ public struct RayInfo
     /// <param name='origin'>
     /// Who emits the ray.
     /// </param>
-	public static RayInfo GetCurrentFrameRay (Vector3 from, Vector3 direction, float range, float maxRange, float intensity, Transform origin = null)
+	public static RayInfo GetCurrentFrameRay (int rayIndex, Vector3 from, Vector3 direction, float range, float maxRange, float intensity, Transform origin = null)
 	{
 		if (range == 0)
 			range = 0.001f;
@@ -140,6 +142,7 @@ public struct RayInfo
 		ray.initialRange = range;
 		ray.intensity = intensity;
 		ray.maxRange = maxRange;
+		ray.rayIndex = rayIndex;
 		
 		return ray;
 	}
@@ -165,9 +168,9 @@ public struct RayInfo
 	/// <param name='origin'>
 	/// Who emits the ray.
 	/// </param>
-	public static RayInfo Emit (Vector3 from, Vector3 direction, float range, float maxRange, float intensity, Transform origin = null)
+	public static RayInfo Emit (int rayIndex, Vector3 from, Vector3 direction, float range, float maxRange, float intensity, Transform origin = null)
 	{
-		return Emit (GetCurrentFrameRay (from, direction, range, maxRange, intensity, origin));
+		return Emit (GetCurrentFrameRay (rayIndex, from, direction, range, maxRange, intensity, origin));
 	}
     
     /// <summary>
@@ -179,9 +182,12 @@ public struct RayInfo
     /// </param>
 	public static RayInfo Emit (RayInfo ray)
 	{
-		if (ray.receiver != null)
+		if (ray.receiver != null) {
 			ray.receiver.SendMessage ("OnRay", ray, SendMessageOptions.DontRequireReceiver);
-			
+			string s = "OnRay" + ray.rayIndex.ToString ();
+			ray.receiver.SendMessage (s, ray, SendMessageOptions.DontRequireReceiver);		
+		
+		}
 		if(ray.emitter != null)
 			ray.emitter.SendMessage ("OnRaySent", ray, SendMessageOptions.DontRequireReceiver);
 			
