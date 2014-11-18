@@ -7,7 +7,12 @@ public class ReceiverScript : MonoBehaviour {
 	public float winTimer = 3.0f; //how many seconds the light needs to hit until the player wins
 	public bool win = false; //becomes true after the timer becomes 0 and the ray is still hitting
 	public float expectedIntensity = 0.2f; //will be used for levels with dividers
-
+	public GameObject explosion;
+	public AudioClip explosionAudio;
+	private float lastDuration = 5.0f;
+	private float explodeTimer = 0.0f;
+	private GameObject explode;
+	private bool startExplode = false;
 	// Use this for initialization
 	void Start () {
 	
@@ -24,6 +29,32 @@ public class ReceiverScript : MonoBehaviour {
 			GameObject train = GameObject.FindGameObjectWithTag ("Train");
 			TrainAnimationScript ts = train.GetComponent<TrainAnimationScript>();
 			ts.animate = true;
+
+			GameObject[] targets = GameObject.FindGameObjectsWithTag ("Target");
+
+			foreach(GameObject g in targets){
+				Destroy(g);
+			}
+
+			GameObject emitter = GameObject.FindGameObjectWithTag ("Emitter");
+			RayEmitter re = emitter.GetComponent<RayEmitter>();
+			re.range = 1;
+			//Destroy(emitter);
+
+			explode = Instantiate (explosion, gameObject.transform.position, Quaternion.identity) as GameObject;
+			startExplode = true;
+
+			AudioSource.PlayClipAtPoint (explosionAudio, gameObject.transform.position);
+		}
+
+		if (startExplode == true) {
+			explodeTimer +=	Time.deltaTime;	
+
+			if(explodeTimer > lastDuration){
+				Destroy(explode);
+			
+				startExplode = false;
+			}
 		}
 	}
 
