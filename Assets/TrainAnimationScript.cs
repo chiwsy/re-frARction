@@ -14,7 +14,8 @@ public class TrainAnimationScript : MonoBehaviour {
 	void Update () {
 		if(animate){
 			Quaternion q = new Quaternion();
-			transform.position	 = Spline.MoveOnPath(path, transform.position, ref t, ref q, 10.0f, 100, EasingType.Sine, true, true);
+			transform.position	 = Spline.MoveOnPath(path, transform.position, ref t, ref q, 25.0f, 100, EasingType.Sine, true, true);
+			transform.rotation = q;
 			//transform.localPosition	 = Spline.MoveOnPath(path, transform.localPosition, ref t, ref q, 10.0f, 100, EasingType.Sine, true, true);
 			//transform.position = Spline.MoveOnPath(path, transform.position, ref t, 10.5f);
 			//transform.rotation = q;
