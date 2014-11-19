@@ -12,7 +12,7 @@ public class TrainAnimationScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		animate = true;
+		//animate = true;
 		if(animate){
 			Quaternion q = new Quaternion();
 			transform.position	 = Spline.MoveOnPath(path, transform.position, ref t, ref q, 25.0f, 100, EasingType.Sine, true, true);

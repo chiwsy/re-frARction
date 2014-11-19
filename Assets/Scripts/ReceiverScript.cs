@@ -9,9 +9,6 @@ public class ReceiverScript : MonoBehaviour {
 	public float expectedIntensity = 0.2f; //will be used for levels with dividers
 	public GameObject explosion;
 	public AudioClip explosionAudio;
-	private float lastDuration = 5.0f;
-	private float explodeTimer = 0.0f;
-	private GameObject explode;
 	private bool startExplode = false;
 	// Use this for initialization
 	void Start () {
@@ -30,32 +27,26 @@ public class ReceiverScript : MonoBehaviour {
 			TrainAnimationScript ts = train.GetComponent<TrainAnimationScript>();
 			ts.animate = true;
 
-			GameObject[] targets = GameObject.FindGameObjectsWithTag ("Target");
 
-			foreach(GameObject g in targets){
-				Destroy(g);
-			}
 
-			GameObject emitter = GameObject.FindGameObjectWithTag ("Emitter");
-			RayEmitter re = emitter.GetComponent<RayEmitter>();
-			re.range = 1;
-			//Destroy(emitter);
+			if(startExplode == false){
+				GameObject[] targets = GameObject.FindGameObjectsWithTag ("Target");
+				
+				foreach(GameObject g in targets){
+					Destroy(g);
+				}
 
-			explode = Instantiate (explosion, gameObject.transform.position, Quaternion.identity) as GameObject;
-			startExplode = true;
+				GameObject receiver = GameObject.FindGameObjectWithTag ("Receiver");
+				Collider collider =  receiver.collider;
+				collider.enabled = false;
 
-			AudioSource.PlayClipAtPoint (explosionAudio, gameObject.transform.position);
-		}
+				GameObject explode = Instantiate (explosion, gameObject.transform.position, Quaternion.identity) as GameObject;
+				startExplode = true;
 
-		if (startExplode == true) {
-			explodeTimer +=	Time.deltaTime;	
-
-			if(explodeTimer > lastDuration){
-				Destroy(explode);
-			
-				startExplode = false;
+				AudioSource.PlayClipAtPoint (explosionAudio, gameObject.transform.position);
 			}
 		}
+
 	}
 
 	void OnRayEnter(RayInfo ray) {
