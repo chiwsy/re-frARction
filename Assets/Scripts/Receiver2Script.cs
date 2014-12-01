@@ -77,5 +77,6 @@ public class Receiver2Script : MonoBehaviour {
 		//reset the timer on ray exit
 		received = false;
 		winTimer = 3.0f;
+		AudioSource.PlayClipAtPoint (explosionAudio, gameObject.transform.position);
 	}
 }
