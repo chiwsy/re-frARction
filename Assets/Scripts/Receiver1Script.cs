@@ -25,9 +25,9 @@ public class Receiver1Script : MonoBehaviour {
 		if (winTimer <= 0){
 			//won the level
 			win = true;
-			GameObject train = GameObject.FindGameObjectWithTag ("Train");
-			//TrainAnimationScript ts = train.GetComponent<TrainAnimationScript>();
-			//ts.animate = true;
+			GameObject train = GameObject.FindGameObjectWithTag ("Train1");
+			TrainAnimationScript ts = train.GetComponent<TrainAnimationScript>();
+			ts.animate = true;
 			
 			
 			
