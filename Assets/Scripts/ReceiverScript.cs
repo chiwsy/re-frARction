@@ -10,6 +10,8 @@ public class ReceiverScript : MonoBehaviour {
 	public GameObject explosion;
 	public AudioClip explosionAudio;
 	private bool startExplode = false;
+	private bool gotoAnotherLevel = false;
+	private float timerAfterAnimation = 0.0f;
 	// Use this for initialization
 	void Start () {
 	
@@ -44,6 +46,19 @@ public class ReceiverScript : MonoBehaviour {
 				startExplode = true;
 
 				AudioSource.PlayClipAtPoint (explosionAudio, gameObject.transform.position);
+			}
+		}
+
+		if (win == true) {
+			timerAfterAnimation += Time.deltaTime;	
+			if(timerAfterAnimation > 5.0){
+				if(Application.loadedLevelName == "Level1Scene"){
+					Application.LoadLevel("Level2Scene");
+				}
+				else if(Application.loadedLevelName == "Level2Scene"){
+					Application.LoadLevel("Level3Scene");
+				}
+					
 			}
 		}
 
