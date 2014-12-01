@@ -50,7 +50,7 @@ public class ReceiverScript : MonoBehaviour {
 		}
 
 		if (win == true) {
-			timerAfterAnimation += Time.deltaTime;	
+			/*timerAfterAnimation += Time.deltaTime;	
 			if(timerAfterAnimation > 5.0){
 				if(Application.loadedLevelName == "Level1Scene"){
 					Application.LoadLevel("Level2Scene");
@@ -59,7 +59,7 @@ public class ReceiverScript : MonoBehaviour {
 					Application.LoadLevel("Level3Scene");
 				}
 					
-			}
+			}*/
 		}
 
 	}
