@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class RayMultiplicator : MonoBehaviour
 {
+	public int rayIndex;
+
 	/// <summary>
 	/// Divides the incoming ray range by the directions quantity for the output rays.
 	/// </summary>
@@ -47,7 +49,7 @@ public class RayMultiplicator : MonoBehaviour
     	{
     		//Emit the ray in the specified directions.
     		Transform direction = directions[i];
-			RayInfo.Emit(i, direction.position, direction.forward, range,rayInfo.maxRange, intensity, direction);
+			RayInfo.Emit(rayIndex, direction.position, direction.forward, range,rayInfo.maxRange, intensity, direction);
 		}
     }
     

@@ -6,7 +6,7 @@ public class ReceiverScript : MonoBehaviour {
 	public bool received = false;
 	public float winTimer = 3.0f; //how many seconds the light needs to hit until the player wins
 	public bool win = false; //becomes true after the timer becomes 0 and the ray is still hitting
-	public float expectedIntensity = 0.2f; //will be used for levels with dividers
+	public float expectedIntensity = 1.0f; //will be used for levels with dividers
 	public GameObject explosion;
 	public AudioClip explosionAudio;
 	private bool startExplode = false;
@@ -65,9 +65,9 @@ public class ReceiverScript : MonoBehaviour {
 	}
 
 	void OnRayEnter(RayInfo ray) {
-		received = true;
-		//Get the intensity of the incoming ray
-		float receivedIntensity = ray.intensity;
+		if(ray.intensity == expectedIntensity)
+			received = true;
+
 	}
 
 	void onRayExit() {
