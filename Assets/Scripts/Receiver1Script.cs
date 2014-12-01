@@ -51,16 +51,13 @@ public class Receiver1Script : MonoBehaviour {
 		}
 		
 		if (win == true) {
-			/*timerAfterAnimation += Time.deltaTime;	
-			if(timerAfterAnimation > 5.0){
-				if(Application.loadedLevelName == "Level1Scene"){
-					Application.LoadLevel("Level2Scene");
-				}
-				else if(Application.loadedLevelName == "Level2Scene"){
-					Application.LoadLevel("Level3Scene");
+			timerAfterAnimation += Time.deltaTime;	
+			if(timerAfterAnimation > 10.0){
+				if(Application.loadedLevelName == "Level3Scene"){
+					Application.LoadLevel("Level4Scene");
 				}
 					
-			}*/
+			}
 		}
 		
 	}

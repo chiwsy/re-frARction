@@ -65,7 +65,7 @@ public class ReceiverScript : MonoBehaviour {
 	}
 
 	void OnRayEnter(RayInfo ray) {
-		if(ray.intensity == expectedIntensity)
+		if(Mathf.Abs(ray.intensity - expectedIntensity) < 0.001)
 			received = true;
 
 	}
