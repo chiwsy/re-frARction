@@ -47,7 +47,7 @@ public class RayMultiplicator : MonoBehaviour
     	{
     		//Emit the ray in the specified directions.
     		Transform direction = directions[i];
-    		RayInfo.Emit(i, direction.position, direction.forward, range, rayInfo.maxRange, intensity, direction);
+			RayInfo.Emit(i, direction.position, direction.forward, range,rayInfo.maxRange, intensity, direction);
 		}
     }
     
