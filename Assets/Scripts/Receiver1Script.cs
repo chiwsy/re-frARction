@@ -32,7 +32,7 @@ public class Receiver1Script : MonoBehaviour {
 			
 			
 			if(startExplode == false){
-				GameObject[] targets = GameObject.FindGameObjectsWithTag ("Target2");
+				GameObject[] targets = GameObject.FindGameObjectsWithTag ("Target1");
 				
 				foreach(GameObject g in targets){
 					Destroy(g);
@@ -67,6 +67,7 @@ public class Receiver1Script : MonoBehaviour {
 	void OnRayEnter(RayInfo ray) {
 		if(ray.intensity == expectedIntensity)
 			received = true;
+
 		//Get the intensity of the incoming ray
 		//float receivedIntensity = ray.intensity;
 	}

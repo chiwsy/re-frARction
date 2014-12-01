@@ -12,7 +12,8 @@ public class GlobalScript : MonoBehaviour {
 		GUILayout.BeginArea(new Rect(0,  100, 100, Screen.height));//Screen.height / 2 +
 
 		if (GUILayout.Button("Restart", GUILayout.Height(300))) {
-			Application.LoadLevel("Level1Scene");
+			Application.LoadLevel(Application.loadedLevelName);
+
 		}
 
 
