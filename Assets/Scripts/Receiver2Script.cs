@@ -12,6 +12,7 @@ public class Receiver2Script : MonoBehaviour {
 	private bool startExplode = false;
 	private bool gotoAnotherLevel = false;
 	private float timerAfterAnimation = 0.0f;
+	private bool bothReceived = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -19,7 +20,7 @@ public class Receiver2Script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(received){
+		if(bothReceived){
 			winTimer -= Time.deltaTime;
 		}
 		if (winTimer <= 0){
@@ -38,7 +39,7 @@ public class Receiver2Script : MonoBehaviour {
 					Destroy(g);
 				}
 				
-				GameObject receiver = GameObject.FindGameObjectWithTag ("Receiver");
+				GameObject receiver = GameObject.FindGameObjectWithTag ("Receiver2");
 				Collider collider =  receiver.collider;
 				collider.enabled = false;
 				
@@ -67,7 +68,12 @@ public class Receiver2Script : MonoBehaviour {
 	void OnRayEnter(RayInfo ray) {
 		if (ray.intensity == expectedIntensity) 
 			received = true;
-		
+		GameObject receiver1 = GameObject.FindGameObjectWithTag ("Receiver1");
+		Receiver1Script receiver1Script = receiver1.GetComponent<Receiver1Script>();
+		if (receiver1Script != null) {
+			if (received == true && receiver1Script.received == true)
+				bothReceived = true;
+		}
 		//received = true;
 		//Get the intensity of the incoming ray
 		//float receivedIntensity = ray.intensity;
@@ -76,7 +82,7 @@ public class Receiver2Script : MonoBehaviour {
 	void onRayExit() {
 		//reset the timer on ray exit
 		received = false;
+		bothReceived = false;
 		winTimer = 3.0f;
-		AudioSource.PlayClipAtPoint (explosionAudio, gameObject.transform.position);
 	}
 }
