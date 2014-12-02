@@ -13,6 +13,7 @@ public class Receiver2Script : MonoBehaviour {
 	private bool gotoAnotherLevel = false;
 	private float timerAfterAnimation = 0.0f;
 	private bool bothReceived = false;
+	public bool otherReceiverReceived = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -20,8 +21,10 @@ public class Receiver2Script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(bothReceived){
+		if (received == true && otherReceiverReceived == true) {
 			winTimer -= Time.deltaTime;
+		} else {
+			winTimer = 3.0f;	
 		}
 		if (winTimer <= 0){
 			//won the level
@@ -57,8 +60,10 @@ public class Receiver2Script : MonoBehaviour {
 			if(timerAfterAnimation > 10.0){
 				if(Application.loadedLevelName == "Level3Scene"){
 					Application.LoadLevel("Level4Scene");
+				}				
+				else if(Application.loadedLevelName == "Level4Scene"){
+					Application.LoadLevel("Level5Scene");
 				}
-
 					
 			}
 		}
@@ -66,23 +71,30 @@ public class Receiver2Script : MonoBehaviour {
 	}
 	
 	void OnRay(RayInfo ray) {
-		if(Mathf.Abs(ray.intensity - expectedIntensity) < 0.001) 
+		if (Mathf.Abs (ray.intensity - expectedIntensity) < 0.001) {
 			received = true;
-		GameObject receiver1 = GameObject.FindGameObjectWithTag ("Receiver1");
-		Receiver1Script receiver1Script = receiver1.GetComponent<Receiver1Script>();
-		if (receiver1Script != null) {
-			if (received == true && receiver1Script.received == true)
-				bothReceived = true;
+			GameObject receiver1 = GameObject.FindGameObjectWithTag ("Receiver1");
+			Receiver1Script receiver1Script = receiver1.GetComponent<Receiver1Script> ();
+			if (receiver1Script != null) {
+					receiver1Script.otherReceiverReceived = true;
+					//if (received == true && receiver1Script.received == true)
+					//	bothReceived = true;
+			}
 		}
 		//received = true;
 		//Get the intensity of the incoming ray
 		//float receivedIntensity = ray.intensity;
 	}
 	
-	void onRayExit() {
+	void OnRayExit() {
 		//reset the timer on ray exit
 		received = false;
-		bothReceived = false;
+		//bothReceived = false;
+		GameObject receiver1 = GameObject.FindGameObjectWithTag ("Receiver1");
+		Receiver1Script receiver1Script = receiver1.GetComponent<Receiver1Script>();
+		if (receiver1Script != null) {
+			receiver1Script.otherReceiverReceived = false;
+		}
 		winTimer = 3.0f;
 	}
 }

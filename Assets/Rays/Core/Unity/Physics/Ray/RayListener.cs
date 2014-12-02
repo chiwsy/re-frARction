@@ -18,8 +18,14 @@ public class RayListener : MonoBehaviour
 	
 	void LateUpdate()
 	{
-		if(_received != received) SendMessage(received ? "OnRayEnter" : "OnRayExit", _ray, SendMessageOptions.DontRequireReceiver);
-		_received = received;
+		if (_received != received) {
+			if(received){
+				SendMessage ("OnRayEnter" , _ray, SendMessageOptions.DontRequireReceiver);
+			}
+			else
+				SendMessage ("OnRayExit", _ray, SendMessageOptions.DontRequireReceiver);
+		}
+			_received = received;
 		received = false;
 	}
 }

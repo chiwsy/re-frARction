@@ -13,6 +13,7 @@ public class Receiver1Script : MonoBehaviour {
 	private bool gotoAnotherLevel = false;
 	private float timerAfterAnimation = 0.0f;
 	private bool bothReceived = false;
+	public bool otherReceiverReceived = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -20,9 +21,13 @@ public class Receiver1Script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(bothReceived){
+		if (received == true && otherReceiverReceived == true) {
 			winTimer -= Time.deltaTime;
+		} else {
+			winTimer = 3.0f;	
 		}
+
+
 		if (winTimer <= 0){
 			//won the level
 			win = true;
@@ -57,30 +62,36 @@ public class Receiver1Script : MonoBehaviour {
 				if(Application.loadedLevelName == "Level3Scene"){
 					Application.LoadLevel("Level4Scene");
 				}
-					
+				else if(Application.loadedLevelName == "Level4Scene"){
+					Application.LoadLevel("Level5Scene");
+				}
 			}
 		}
 		
 	}
 	
 	void OnRay(RayInfo ray) {
-		if(Mathf.Abs(ray.intensity - expectedIntensity) < 0.001)
+		if (Mathf.Abs (ray.intensity - expectedIntensity) < 0.001) {
 			received = true;
-		GameObject receiver2 = GameObject.FindGameObjectWithTag ("Receiver2");
-		Receiver2Script receiver2Script = receiver2.GetComponent<Receiver2Script>();
-		if (receiver2Script != null) {
-			if (received == true && receiver2Script.received == true)
-				bothReceived = true;
+			GameObject receiver2 = GameObject.FindGameObjectWithTag ("Receiver2");
+			Receiver2Script receiver2Script = receiver2.GetComponent<Receiver2Script> ();
+			if (receiver2Script != null) {
+				receiver2Script.otherReceiverReceived = true;
+			}
 		}
-		
 		//Get the intensity of the incoming ray
 		//float receivedIntensity = ray.intensity;
 	}
 	
-	void onRayExit() {
+	void OnRayExit() {
 		//reset the timer on ray exit
 		received = false;
-		bothReceived = false;
+		GameObject receiver2 = GameObject.FindGameObjectWithTag ("Receiver2");
+		Receiver2Script receiver2Script = receiver2.GetComponent<Receiver2Script>();
+		if (receiver2Script != null) {
+			receiver2Script.otherReceiverReceived = false;
+		}
+		//bothReceived = false;
 		winTimer = 3.0f;
 	}
 }

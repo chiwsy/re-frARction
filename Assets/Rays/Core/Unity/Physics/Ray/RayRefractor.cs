@@ -90,7 +90,22 @@ public class RayRefractor : MonoBehaviour {
 	
 	void OnRayExit (RayInfo rayInfo)
 	{
-		SendMessage ("OnRayStopSent", this, SendMessageOptions.DontRequireReceiver);
+		if (rayInfo.rayIndex == 1) {
+			transform1.SendMessage ("OnRayStopSent", this, SendMessageOptions.DontRequireReceiver);
+			transform2.SendMessage ("OnRayStopSent", this, SendMessageOptions.DontRequireReceiver);
+		}
+		else if (rayInfo.rayIndex == 2) {
+			transform3.SendMessage ("OnRayStopSent", this, SendMessageOptions.DontRequireReceiver);
+			transform4.SendMessage ("OnRayStopSent", this, SendMessageOptions.DontRequireReceiver);
+		}		
+		else if (rayInfo.rayIndex == 3) {
+			transform5.SendMessage ("OnRayStopSent", this, SendMessageOptions.DontRequireReceiver);
+			transform6.SendMessage ("OnRayStopSent", this, SendMessageOptions.DontRequireReceiver);
+		}		
+		else if (rayInfo.rayIndex == 4) {
+			transform7.SendMessage ("OnRayStopSent", this, SendMessageOptions.DontRequireReceiver);
+			transform8.SendMessage ("OnRayStopSent", this, SendMessageOptions.DontRequireReceiver);
+		}
 	}
 	
 	void OnDisable ()

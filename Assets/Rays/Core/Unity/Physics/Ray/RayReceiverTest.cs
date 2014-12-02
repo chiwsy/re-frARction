@@ -26,8 +26,12 @@ public class RayReceiverTest : MonoBehaviour {
 		bool stop = true;
 		
 	}
+	void OnRayEnter2(RayInfo ray) {
+		bool stop = true;
+		
+	}
 	
-	void onRayExit(RayInfo ray) {
+	void OnRayExit(RayInfo ray) {
 		bool stop = true;
 	}
 }

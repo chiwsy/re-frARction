@@ -70,7 +70,7 @@ public class ReceiverScript : MonoBehaviour {
 
 	}
 
-	void onRayExit(RayInfo ray) {
+	void OnRayExit(RayInfo ray) {
 		//reset the timer on ray exit
 		received = false;
 		winTimer = 3.0f;
