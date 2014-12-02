@@ -27,8 +27,10 @@ public class Receiver2Script : MonoBehaviour {
 			//won the level
 			win = true;
 			GameObject train = GameObject.FindGameObjectWithTag ("Train2");
-			TrainAnimationScript ts = train.GetComponent<TrainAnimationScript>();
-			ts.animate = true;
+			if(train != null){
+				TrainAnimationScript ts = train.GetComponent<TrainAnimationScript>();
+				ts.animate = true;
+			}
 			
 			
 			
@@ -63,8 +65,8 @@ public class Receiver2Script : MonoBehaviour {
 		
 	}
 	
-	void OnRayEnter(RayInfo ray) {
-		if (ray.intensity == expectedIntensity) 
+	void OnRay(RayInfo ray) {
+		if(Mathf.Abs(ray.intensity - expectedIntensity) < 0.001) 
 			received = true;
 		GameObject receiver1 = GameObject.FindGameObjectWithTag ("Receiver1");
 		Receiver1Script receiver1Script = receiver1.GetComponent<Receiver1Script>();

@@ -34,13 +34,13 @@ public class RayRefractor : MonoBehaviour {
 		float airToObjCosTheta2Square = 1 - (1 / refractionIndex * refractionIndex) * (1 - Mathf.Pow(airToObjCosTheta1, 2));
 		Vector3 refractInDir = Vector3.Normalize(rayInfo.direction / refractionIndex + (airToObjCosTheta1 / refractionIndex - Mathf.Sqrt(airToObjCosTheta2Square)) * rayInfo.normal);
 		
-		Vector3 from = rayInfo.to + 6.0f*refractInDir;
+		Vector3 from = rayInfo.to + 30.0f*refractInDir;
 		Vector3 refractInDirOppo = refractInDir * -1;
 		//RayInfo.Emit(rayInfo.rayIndex, from, refractInDir, rayInfo.finalRange * rangeFactor,rayInfo.maxRange, rayInfo.intensity* intensityFactor, transform);
 		RaycastHit hit;
 		Vector3 objIntersectN;
 		Vector3 point;
-		if (Physics.Raycast (from, refractInDirOppo, out hit, 10)) {
+		if (Physics.Raycast (from, refractInDirOppo, out hit, 30)) {
 			point = hit.point;
 			objIntersectN = -1 * hit.normal;
 			//hitTransform = hit.transform;
