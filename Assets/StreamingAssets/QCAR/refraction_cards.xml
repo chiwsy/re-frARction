@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="ConvexLens" size="100.000000 64.666664" />
+    <ImageTarget name="Mirror2" size="100.000000 64.671532" />
     <ImageTarget name="Boat1" size="100.000000 64.533333" />
+    <ImageTarget name="ConvexLens1" size="100.000000 64.723030" />
     <ImageTarget name="Boat2" size="100.000000 64.800003" />
     <ImageTarget name="Train" size="100.000000 64.800003" />
+    <ImageTarget name="Mirror1" size="100.000000 64.671532" />
     <ImageTarget name="Spaceship2" size="100.000000 64.800003" />
+    <ImageTarget name="Divider_OneThird" size="100.000000 64.723030" />
     <ImageTarget name="Police_car" size="100.000000 64.800003" />
     <ImageTarget name="Mirror" size="100.000000 64.666664" />
     <ImageTarget name="Fire_fighting_car" size="100.000000 64.800003" />
     <ImageTarget name="Spcaeship1" size="100.000000 64.533333" />
-    <ImageTarget name="Divider" size="100.000000 64.666664" />
     <ImageTarget name="Car1" size="100.000000 64.800003" />
+    <ImageTarget name="Divider_Half1" size="100.000000 64.723030" />
     <ImageTarget name="Airplane2" size="100.000000 64.800003" />
-    <ImageTarget name="ConcaveLens" size="100.000000 64.666664" />
+    <ImageTarget name="Summation" size="100.000000 64.688713" />
+    <ImageTarget name="Divider_Half2" size="100.000000 64.625847" />
     <ImageTarget name="Airplane1" size="100.000000 64.627663" />
+    <ImageTarget name="Train1" size="100.000000 64.785995" />
   </Tracking>
 </QCARConfig>
