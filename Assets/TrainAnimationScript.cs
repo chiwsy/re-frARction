@@ -23,7 +23,7 @@ public class TrainAnimationScript : MonoBehaviour {
 			//transform.rotation = q;
 			if(horse){
 				//gameObject.GetComponent<Animation>().CrossFade("Horse_Walk");
-				//gameObject.GetComponent<Animation>().Play("Horse_Walk");
+				gameObject.GetComponent<Animator>().SetBool(Animator.StringToHash("run"),true);
 			}
 		
 		}
