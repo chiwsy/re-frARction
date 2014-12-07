@@ -5,9 +5,10 @@ public class TrainAnimationScript : MonoBehaviour {
 	public Transform[] path;
 	float t = 0;
 	public bool animate = false;
+	public bool horse = false;
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
@@ -20,6 +21,11 @@ public class TrainAnimationScript : MonoBehaviour {
 			//transform.localPosition	 = Spline.MoveOnPath(path, transform.localPosition, ref t, ref q, 10.0f, 100, EasingType.Sine, true, true);
 			//transform.position = Spline.MoveOnPath(path, transform.position, ref t, 10.5f);
 			//transform.rotation = q;
+			if(horse){
+				//gameObject.GetComponent<Animation>().CrossFade("Horse_Walk");
+				//gameObject.GetComponent<Animation>().Play("Horse_Walk");
+			}
+		
 		}
 
 	}
