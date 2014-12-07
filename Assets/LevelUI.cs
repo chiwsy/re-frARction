@@ -15,22 +15,26 @@ public class LevelUI : MonoBehaviour {
 
 	public void onNext(){
 		if(Application.loadedLevelName == "Level1Scene"){
-			Application.LoadLevel("Level2Scene");
+			Application.LoadLevel("pre_level2");
 		}
 		else if(Application.loadedLevelName == "Level2Scene"){
-			Application.LoadLevel("Level3Scene");
+			Application.LoadLevel("pre_level3");
 		}
 		else if(Application.loadedLevelName == "Level3Scene"){
-			Application.LoadLevel("Level4Scene");
+			Application.LoadLevel("pre_level4");
 		}
 		else if(Application.loadedLevelName == "Level4Scene"){
-			Application.LoadLevel("Level5Scene");
+			Application.LoadLevel("pre_level5");
 		}
 
 	}
 	
 	public void onExit(){
 		Application.Quit();
+	}
+
+	public void onReplay(){
+		Application.LoadLevel(Application.loadedLevelName);
 	}
 
 	public void onMain(){

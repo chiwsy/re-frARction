@@ -74,12 +74,12 @@ public class ReceiverScript : MonoBehaviour {
 			timerAfterAnimation += Time.deltaTime;	
 			if(timerAfterAnimation > 10.0){
 				gui.SetActive(true);
-				if(Application.loadedLevelName == "Level1Scene"){
+				/*if(Application.loadedLevelName == "Level1Scene"){
 					Application.LoadLevel("Level2Scene");
 				}
 				else if(Application.loadedLevelName == "Level2Scene"){
 					Application.LoadLevel("Level3Scene");
-				}
+				}*/
 					
 			}
 		}

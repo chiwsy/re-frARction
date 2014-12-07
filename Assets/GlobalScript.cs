@@ -9,7 +9,7 @@ public class GlobalScript : MonoBehaviour {
 	}
 
 	void OnGUI (){
-		GUILayout.BeginArea(new Rect(0,  100, 100, Screen.height));//Screen.height / 2 +
+		/*GUILayout.BeginArea(new Rect(0,  100, 100, Screen.height));//Screen.height / 2 +
 
 		if (GUILayout.Button("Replay", GUILayout.Height(300))) {
 			Application.LoadLevel(Application.loadedLevelName);
@@ -21,7 +21,7 @@ public class GlobalScript : MonoBehaviour {
 		}
 
 
-		GUILayout.EndArea();
+		GUILayout.EndArea();*/
 	}
 
 

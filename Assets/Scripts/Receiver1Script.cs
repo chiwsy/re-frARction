@@ -15,9 +15,11 @@ public class Receiver1Script : MonoBehaviour {
 	private bool bothReceived = false;
 	public bool otherReceiverReceived = false;
 	public GameObject counterText;
+	public GameObject gui;
 	// Use this for initialization
 	void Start () {
 		counterText.SetActive(false);
+		gui.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -68,12 +70,14 @@ public class Receiver1Script : MonoBehaviour {
 		if (win == true) {
 			timerAfterAnimation += Time.deltaTime;	
 			if(timerAfterAnimation > 10.0){
+				gui.SetActive(true);
+				/*
 				if(Application.loadedLevelName == "Level3Scene"){
 					Application.LoadLevel("Level4Scene");
 				}
 				else if(Application.loadedLevelName == "Level4Scene"){
 					Application.LoadLevel("Level5Scene");
-				}
+				}*/
 			}
 		}
 		
