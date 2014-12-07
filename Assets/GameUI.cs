@@ -50,4 +50,19 @@ public class GameUI : MonoBehaviour {
 	public void onLevel5(){
 		Application.LoadLevel ("Level5Scene");
 	}
+	public void onPreLevel1(){
+		Application.LoadLevel ("pre_level1");
+	}
+	public void onPreLevel2(){
+		Application.LoadLevel ("pre_level2");
+	}
+	public void onPreLevel3(){
+		Application.LoadLevel ("pre_level3");
+	}
+	public void onPreLevel4(){
+		Application.LoadLevel ("pre_level4");
+	}
+	public void onPreLevel5(){
+		Application.LoadLevel ("pre_level5");
+	}
 }
