@@ -12,19 +12,40 @@ public class ReceiverScript : MonoBehaviour {
 	private bool startExplode = false;
 	private bool gotoAnotherLevel = false;
 	private float timerAfterAnimation = 0.0f;
+	public float resetTimer = 0.25f; //how many seconds need to pass before the win timer resets
+	public GameObject counterText;
+	public GameObject gui;
+
 	// Use this for initialization
 	void Start () {
-	
+		counterText.SetActive(false);
+		gui.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(received){
+			counterText.SetActive (true);
 			winTimer -= Time.deltaTime;
+			if(winTimer <= 1){
+				counterText.GetComponent<TextMesh>().text = "1";
+			}
+			else if(winTimer <= 2){
+				counterText.GetComponent<TextMesh>().text = "2";
+			}
+
+		}
+		else{
+			resetTimer -= Time.deltaTime;
+			if(resetTimer <= 0){
+				counterText.SetActive (false);
+				winTimer = 3.0f;
+			}
 		}
 		if (winTimer <= 0){
 			//won the level
 			win = true;
+			counterText.SetActive (false);
 			GameObject train = GameObject.FindGameObjectWithTag ("Train");
 			TrainAnimationScript ts = train.GetComponent<TrainAnimationScript>();
 			ts.animate = true;
@@ -52,6 +73,7 @@ public class ReceiverScript : MonoBehaviour {
 		if (win == true) {
 			timerAfterAnimation += Time.deltaTime;	
 			if(timerAfterAnimation > 10.0){
+				gui.SetActive(true);
 				if(Application.loadedLevelName == "Level1Scene"){
 					Application.LoadLevel("Level2Scene");
 				}
@@ -73,6 +95,7 @@ public class ReceiverScript : MonoBehaviour {
 	void OnRayExit(RayInfo ray) {
 		//reset the timer on ray exit
 		received = false;
-		winTimer = 3.0f;
+		resetTimer = 0.25f;
+		//winTimer = 3.0f;
 	}
 }

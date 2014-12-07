@@ -14,15 +14,23 @@ public class Receiver1Script : MonoBehaviour {
 	private float timerAfterAnimation = 0.0f;
 	private bool bothReceived = false;
 	public bool otherReceiverReceived = false;
+	public GameObject counterText;
 	// Use this for initialization
 	void Start () {
-		
+		counterText.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (received == true && otherReceiverReceived == true) {
+			counterText.SetActive (true);
 			winTimer -= Time.deltaTime;
+			if(winTimer <= 1){
+				counterText.GetComponent<TextMesh>().text = "1";
+			}
+			else if(winTimer <= 2){
+				counterText.GetComponent<TextMesh>().text = "2";
+			}
 		} else {
 			winTimer = 3.0f;	
 		}
@@ -31,6 +39,7 @@ public class Receiver1Script : MonoBehaviour {
 		if (winTimer <= 0){
 			//won the level
 			win = true;
+			counterText.SetActive (false);
 			GameObject train = GameObject.FindGameObjectWithTag ("Train1");
 			if(train != null){
 				TrainAnimationScript ts = train.GetComponent<TrainAnimationScript>();
