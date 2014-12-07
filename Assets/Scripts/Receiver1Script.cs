@@ -42,6 +42,7 @@ public class Receiver1Script : MonoBehaviour {
 			//won the level
 			win = true;
 			counterText.SetActive (false);
+
 			GameObject train = GameObject.FindGameObjectWithTag ("Train1");
 			if(train != null){
 				TrainAnimationScript ts = train.GetComponent<TrainAnimationScript>();
@@ -99,6 +100,9 @@ public class Receiver1Script : MonoBehaviour {
 	void OnRayExit() {
 		//reset the timer on ray exit
 		received = false;
+		counterText.SetActive(false);
+		counterText.GetComponent<TextMesh>().text = "3";
+
 		GameObject receiver2 = GameObject.FindGameObjectWithTag ("Receiver2");
 		Receiver2Script receiver2Script = receiver2.GetComponent<Receiver2Script>();
 		if (receiver2Script != null) {

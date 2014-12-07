@@ -66,12 +66,12 @@ public class Receiver2Script : MonoBehaviour {
 		if (win == true) {
 			timerAfterAnimation += Time.deltaTime;	
 			if(timerAfterAnimation > 10.0){
-				if(Application.loadedLevelName == "Level3Scene"){
+				/*if(Application.loadedLevelName == "Level3Scene"){
 					Application.LoadLevel("Level4Scene");
 				}				
 				else if(Application.loadedLevelName == "Level4Scene"){
 					Application.LoadLevel("Level5Scene");
-				}
+				}*/
 					
 			}
 		}
@@ -97,6 +97,8 @@ public class Receiver2Script : MonoBehaviour {
 	void OnRayExit() {
 		//reset the timer on ray exit
 		received = false;
+		counterText.SetActive(false);
+		counterText.GetComponent<TextMesh>().text = "3";
 		//bothReceived = false;
 		GameObject receiver1 = GameObject.FindGameObjectWithTag ("Receiver1");
 		Receiver1Script receiver1Script = receiver1.GetComponent<Receiver1Script>();

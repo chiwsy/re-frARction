@@ -4,8 +4,16 @@ using System.Collections;
 public class GlobalScript : MonoBehaviour {
 	
 
+	public AudioClip bg;
+	public AudioSource as_bgMusic;
+	
 	void Start () {
-
+		as_bgMusic = (AudioSource)gameObject.AddComponent("AudioSource");
+		as_bgMusic.clip = bg;
+		as_bgMusic.loop = true;
+		as_bgMusic.Play();
+		as_bgMusic.volume = 0.5f;
+		DontDestroyOnLoad(gameObject);
 	}
 
 	void OnGUI (){
@@ -28,4 +36,5 @@ public class GlobalScript : MonoBehaviour {
 	void Update () {
 
 	}
+
 }

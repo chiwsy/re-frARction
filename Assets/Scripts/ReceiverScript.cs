@@ -40,6 +40,7 @@ public class ReceiverScript : MonoBehaviour {
 			if(resetTimer <= 0){
 				counterText.SetActive (false);
 				winTimer = 3.0f;
+				counterText.GetComponent<TextMesh>().text = "3";
 			}
 		}
 		if (winTimer <= 0){
