@@ -19,4 +19,21 @@ CIS 568 Game Design Practicum, Team Project #2, University of Pennsylvania
 
 
 ============
-Working...
+##Highlights:
+###1) Immersive Learning:
+In our demo, we have totally 5 levels, covering 4 introductory levels on light reflection, light refraction and light division. And the 5th level is an advanced level requiring all complicated fraction calculation to win.
+
+###2) Augmented Reality:
+We used Vuforia Plugin for Unity to achieve the AR effects.
+
+###3) Play board game with your phone!
+With the help to AR, we can play board game with your phone. Put the board cards on the real-world desk, and scan the cards with your phone camera, a virtual world will respond to show up on your phone screen!
+
+####Board Card Set:
+*Level Card: Set the game scene and environment for current level
+*Tool Cards:
+  - Reflector: can reflect the incoming light beam
+  - Refractor: can refract the incoming light beam
+  - Divider (1/2): can divide the incoming light beam to half lights
+  - Divider (1/3): can divide the incoming light beam to one third
+  - Summation: can combine all the incoming light beams
