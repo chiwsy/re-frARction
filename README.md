@@ -14,8 +14,9 @@ CIS 568 Game Design Practicum, Team Project #2, University of Pennsylvania
   - UX Designer, Developer
   - tanirganemre@gmail.com
 
-#### Gameplay Walkthrough Video: http://youtu.be/TDbPRvoPtvc
-#### Brief Introduction Slides: https://docs.google.com/presentation/d/1JS0LhZIyUBudE48T2dhvZMPd0S69SKkCIJmTOb2Puo0/edit?usp=sharing
+#### [Gameplay Walkthrough Video](http://youtu.be/TDbPRvoPtvc)
+#### [Introduction Slides](https://docs.google.com/presentation/d/1JS0LhZIyUBudE48T2dhvZMPd0S69SKkCIJmTOb2Puo0/edit?usp=sharing)
 
 
 ============
+Working...
